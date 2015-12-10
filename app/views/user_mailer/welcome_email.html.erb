@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="text/html: charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Yang Family College Bowl Picker</h1>
+    <h2>Hello, <%= @user.email %>!</h2>
+    <p>Below you'll find a link to the web site I hacked together that will hopefully make keeping track of this bowl challenge a little easier.  This was put together pretty quickly by modifying another project I was working on , so <a href="mailto:yang70@gmail.com">let me know</a> if you come across any bugs!</p>
+
+    <p>Your login information is below, make sure to update your password when you log in, you don't want Bob to be able to log in and change your picks!</p>
+
+    <p><a href="http://college-bowl-picker.herokuapp.com">http://college-bowl-picker.herokuapp.com</a></p>
+    <p>Username: <%= @user.email %></p>
+    <p>Password: changeme</p>
+
+    <p>Thanks again to Bob for puting this together!</p>
+
+    <p>Matt</p>
+
+  </body>
+</html>

@@ -44,16 +44,12 @@ class User < ActiveRecord::Base
    games = Game.all
 
    games.each do |game|
-     self.picks.create(winner: nil, game_id: game.id, week_id: game.week_id, user: self)
+     self.picks.create(winner: nil, game_id: game.id, user: self)
    end
   end  
 
   def setup_scores
-    TotalScore.create(user: self)
-
-    (1..17).each do |num|
-      WeeklyScore.create(week_id: num, user: self, score: 0)
-    end 
+    TotalScore.create(user: self, score: 0)
   end
 
 end

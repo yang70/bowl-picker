@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121173413) do
+ActiveRecord::Schema.define(version: 20151209073611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,12 @@ ActiveRecord::Schema.define(version: 20151121173413) do
     t.string   "favorite"
     t.string   "underdog"
     t.decimal  "spread_for_away_team"
-    t.integer  "week_id"
     t.integer  "home_score"
     t.integer  "away_score"
     t.string   "winner"
+    t.string   "bowl_name"
+    t.string   "tv"
   end
-
-  add_index "games", ["week_id"], name: "index_games_on_week_id", using: :btree
 
   create_table "picks", force: :cascade do |t|
     t.string   "winner"
@@ -84,6 +83,5 @@ ActiveRecord::Schema.define(version: 20151121173413) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "games", "weeks"
   add_foreign_key "picks", "users"
 end
