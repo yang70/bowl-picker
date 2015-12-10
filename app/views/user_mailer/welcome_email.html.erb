@@ -6,13 +6,15 @@
   <body>
     <h1>Yang Family College Bowl Picker</h1>
     <h2>Hello, <%= @user.email %>!</h2>
-    <p>Below you'll find a link to the web site I hacked together that will hopefully make keeping track of this bowl challenge a little easier.  This was put together pretty quickly by modifying another project I was working on , so <a href="mailto:yang70@gmail.com">let me know</a> if you come across any bugs!</p>
+    <p>Below you'll find a link to the web site I hacked together that will hopefully make keeping track of this bowl challenge a little easier.  This was put together pretty quickly by modifying another project I was working on , so <a href="mailto:yang70@gmail.com">let me know</a> if you come across any bugs! I'll be refining the style but thought I would push this out so people could start getting their picks in.</p>
 
     <p>Your login information is below, make sure to update your password when you log in, you don't want Bob to be able to log in and change your picks!</p>
 
     <p><a href="http://college-bowl-picker.herokuapp.com">http://college-bowl-picker.herokuapp.com</a></p>
-    <p>Username: <%= @user.email %></p>
-    <p>Password: changeme</p>
+    <p><strong>Username: </strong><%= @user.email %></p>
+    <p><strong>Password: </strong>changeme</p>
+
+    <h4>PICKS ARE DUE BY 11:59pm FRIDAY DECEMBER 18TH! (you can edit/update your picks on the site until then)</h4>
 
     <p>Thanks again to Bob for puting this together!</p>
 
