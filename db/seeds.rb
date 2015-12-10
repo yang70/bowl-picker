@@ -1,5 +1,6 @@
 require 'CSV'
 
+
 CSV.foreach('lib/assets/bowls.csv') do |row|
 
   game = Game.create!(  date_time: Time.parse(row[4]), 
@@ -14,5 +15,24 @@ CSV.foreach('lib/assets/bowls.csv') do |row|
   game.save 
 end
 
-user = User.create!(email: "test@example.com", password: "password", password_confirmation: "password")
-user.save
+emails = [
+  "hopejohanson@gmail.com",
+  "meivan@aol.com",
+  "yang70@gmail.com",
+  "xtinemueller@gmail.com",
+  "vny17@aol.com",
+  "muellermc@yahoo.com",
+  "mog110@hotmail.com",
+  "robyn.m.yang@gmail.com",
+  "fshn4x4@gmail.com",
+  "txyingyang@aol.com",
+  "kyle@freedomsolarpower.com",
+  "matt.walker921@gmail.com",
+  "frazierjen@gmail.com",
+  "melissa.Walker@solarwinds.com",
+  "txyingyang@gmail.com" 
+  ]
+
+emails.each do |email|
+  User.create!(email: email, password: "changeme", password_confirmation: "changeme")
+end
