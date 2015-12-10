@@ -1,5 +1,6 @@
 class BowlsController < ApplicationController
-  
+  before_action :authenticate_user!
+ 
   def index
     @games = Game.all
     @game_picks = {}
