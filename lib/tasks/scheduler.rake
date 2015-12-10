@@ -1,4 +1,8 @@
 desc "This task is called by the Heroku scheduler add-on"
+task :test_email => :environment do
+  User.send_welcome_email
+end
+
 task :update_user_scores => :environment do
   if Time.now.strftime("%A") == "Tuesday"
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"

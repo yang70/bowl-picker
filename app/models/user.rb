@@ -24,6 +24,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.send_welcome_email
+    user = User.find_by(email: "yang70@gmail.com")
+
+    UserMailer.welcome_email(user).deliver_now
+  end
+
   def self.send_reminder_email
     users = User.all
 
