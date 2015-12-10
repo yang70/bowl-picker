@@ -35,20 +35,19 @@
           <% if current_user.picks.find_by(game_id: game.id).correct %>
             <h4>You got it right!</h4>
           <% else %>
-              <h4>You got it wrong</h4>
+            <h4>You got it wrong</h4>
          <% end %>
-      <% else %>
-        <h3><%= game.bowl_name %> Bowl</h3>
+       <% else %>
+        <h4><%= game.bowl_name %> Bowl</h4>
         <h4><%= game.home_team %></h4>
         <p>is favored by <%= game.spread_for_away_team %> over</p>
         <h4><%= game.away_team %></h4>
         <p><%= game.date_time.to_s(:game_time) %></p>
         <strong>Your pick: </strong>
         <div id="<%= dom_id(@game_picks[game]) %>">
-          <% if Time.now > game.date_time %>
+          <% if Time.now > Time.parse('2015-12-19 08:00:00 -800') %>
             <% if @game_picks[game].winner.nil? %>
               <p>Too late!</p>
-              <p> This game has started!</p>
             <% else %>
               <p><%= @game_picks[game].winner %></p>
               <p><strong>Locked, game has already started</strong></p>
