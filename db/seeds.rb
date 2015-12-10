@@ -1,5 +1,4 @@
-require 'CSV'
-
+require 'csv'
 
 CSV.foreach('lib/assets/bowls.csv') do |row|
 
