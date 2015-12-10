@@ -1,5 +1,5 @@
 desc "This task is called by the Heroku scheduler add-on"
-task :test_email => :environment do
+task :send_welcome_emails => :environment do
   User.send_welcome_email
 end
 
