@@ -39,6 +39,9 @@
          <% end %>
        <% else %>
         <h4><%= game.bowl_name %> Bowl</h4>
+        <% if game.pic_url %>
+          <img src="<%= game.pic_url %>" alt="<%= game.bowl_name %>_logo" />
+        <% end %>
         <h4><%= game.home_team %></h4>
         <p>is favored by <%= game.spread_for_away_team %> over</p>
         <h4><%= game.away_team %></h4>
@@ -83,9 +86,7 @@
           <% end %>
         </div>
       <% end %>
-      <% if game.pic_url %>
-        <img src="<%= game.pic_url %>" alt="" />
-      <% end %>
+
     </div>
   <% end %>
 </div>
