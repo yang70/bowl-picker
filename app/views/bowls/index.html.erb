@@ -43,6 +43,7 @@
         <p>is favored by <%= game.spread_for_away_team %> over</p>
         <h4><%= game.away_team %></h4>
         <p><%= game.date_time.to_s(:game_time) %></p>
+        <p><strong>TV Network:</strong><%= game.tv %></p>
         <strong>Your pick: </strong>
         <div id="<%= dom_id(@game_picks[game]) %>">
           <% if Time.now > Time.parse('2015-12-19 08:00:00 -800') %>
