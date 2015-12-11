@@ -82,6 +82,9 @@
           <% end %>
         </div>
       <% end %>
+      <% if game.pic_url %>
+        <img src="<%= game.pic_url %>" alt="" />
+      <% end %>
     </div>
   <% end %>
 </div>
