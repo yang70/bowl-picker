@@ -39,6 +39,33 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.send_log_in_reminder_email
+    users = User.where(sign_in_count: 0)
+
+    users.each do |user|
+      UserMailer.log_in_reminder_email(user).deliver_now
+    end
+  end
+
+  def self.send_incomplete_picks_email
+    users = User.all
+
+    users.each do |user|
+      picks = Pick.where(user: user)
+
+      nil_picks = picks.select { |pick| pick.winner = nil }
+
+      if nil_picks.length != 0
+        picks_left = nil_picks.length
+        UserMailer.incomplete_picks_email(user, picks_left).deliver_now
+      else
+        UserMailer.confirm_picks_email(user).deliver_now
+      end
+    end
+  end
+
+  
+
   protected
 
   def get_current_week
