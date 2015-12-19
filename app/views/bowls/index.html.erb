@@ -54,7 +54,7 @@
               <p>Too late!</p>
             <% else %>
               <p><%= @game_picks[game].winner %></p>
-              <p><strong>Locked, game has already started</strong></p>
+              <p><strong>Locked, past the entry deadline.</strong></p>
             <% end %>
           <% else %>
             <% if @game_picks[game].winner.nil? %>
