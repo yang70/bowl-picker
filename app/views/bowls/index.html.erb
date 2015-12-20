@@ -30,10 +30,6 @@
             <td class='score-table'><%= game.home_team %>:</td>
             <td class='score-table'><%= game.home_score %></td>
           </tr>
-          <th>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </th>
         </table>
           <% if current_user.picks.find_by(game_id: game.id).correct %>
             <h3>You got it right!</h3>
