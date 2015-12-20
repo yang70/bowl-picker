@@ -47,15 +47,13 @@ class Game < ActiveRecord::Base
   end
 
   def self.process_user_picks
-    previous_week = get_current_week - 1
-
-    games = Game.where(week: previous_week)
+    games = Game.all.select { |game| game.winner && !game.processed }
 
     users = User.all
 
     users.each do |user|
       games.each do |game|
-        pick = Pick.where('user_id= ? AND game_id= ?', user.id, game.id)[0]
+        pick = Pick.find_by(user_id: user.id, game_id: game.id)
         if pick.winner.nil?
           pick.correct = false
           pick.save
@@ -73,28 +71,27 @@ class Game < ActiveRecord::Base
   def self.process_user_scores
     users = User.all
 
-    previous_week = get_current_week - 1
+    games = Game.all.select { |game| game.winner && !game.processed }
 
     users.each do |user|
-      weekly_score = WeeklyScore.find_by(week_id: previous_week, user: user)
-
-      total_score = TotalScore.find_by(user: user)
-
-      games = Game.where(week: previous_week)
+      total_score = TotalScore.find_by(user_id: user.id)
 
       weekly_total = 0
 
       games.each do |game|
-        pick = Pick.find_by(user: user, game_id: game.id)
-        if pick.winner && pick.winner == game.winner
+        pick = Pick.find_by(user_id: user.id, game_id: game.id)
+        if pick.correct
           weekly_total += 1
         end
       end
 
-      weekly_score.score = weekly_total
-      weekly_score.save
       total_score.score += weekly_total
       total_score.save
+
+      games.each do |game|
+        game.processed = true
+        game.save
+      end
     end
   end
 

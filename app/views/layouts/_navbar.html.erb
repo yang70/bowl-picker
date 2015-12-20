@@ -15,7 +15,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.present? %>
           <li><a>Signed in as <%= current_user.email %></a></li>
-          <li><%= link_to "Make Picks", bowls_path %></li>
+          <li><%= link_to "See Picks", bowls_path %></li>
+          <li><a href="<%= total_scores_path %>">Standings</a></li>
           <li><%= link_to "Update Password", edit_user_registration_path %></li>
           <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %></li>
         <% else %>

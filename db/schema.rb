@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211215920) do
+ActiveRecord::Schema.define(version: 20151219234152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151211215920) do
     t.string   "bowl_name"
     t.string   "tv"
     t.string   "pic_url"
+    t.boolean  "processed"
   end
 
   create_table "picks", force: :cascade do |t|
