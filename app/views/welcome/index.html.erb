@@ -2,7 +2,7 @@
   <h1>Welcome to College Bowl Picker!</h1>
   <% if current_user %>
     <h4>All picks are due by 11:59pm Friday December 18th</h4>
-    <h3><%= link_to "Make Picks", bowls_path, class: "btn btn-lg btn-default" %></h3>
+    <h3><%= link_to "View Picks", bowls_path, class: "btn btn-lg btn-default" %></h3>
   <% else %>
     <h3><%= link_to "Sign In", new_user_session_path, class: "btn btn-lg btn-default" %></h3>
   <% end %>
