@@ -15,7 +15,7 @@ end
 task :send_weekly_emails => :environment do
   puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
   puts "Sending weekly score emails"
-  User.send_weekly_email
+  User.send_weekly_emails
   puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 end
 
