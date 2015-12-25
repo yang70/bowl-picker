@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     users.each do |user|
       user_score = TotalScore.find_by(user: user).score
       
-      UserMailer.welcome_email(user, user_score, all_scores).deliver_now
+      UserMailer.weekly_email(user, user_score, all_scores).deliver_now
     end
   end
 
