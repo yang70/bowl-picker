@@ -10,24 +10,22 @@ class User < ActiveRecord::Base
 
   after_create :setup_blank_picks, :setup_scores
 
-  def self.send_weekly_email
-    start = Time.parse("2015-09-01 01:00:00 -800")
+  # def self.send_weekly_email
+  #   users = User.all
 
-    week = (Time.now.to_date - start.to_date).to_i / 7
+  #   users.each do |user|
+  #     UserMailer.weekly_email(user, last_week).deliver_now
+  #   end
+  # end
 
-    last_week = week - 1
-
+  def self.send_weekly_emails
     users = User.all
+    all_scores = TotalScore.includes(:user).order(score: :desc)
 
     users.each do |user|
-      UserMailer.weekly_email(user, last_week).deliver_now
-    end
-  end
-
-  def self.send_welcome_emails
-    users = User.all
-    users.each do |user|
-      UserMailer.welcome_email(user).deliver_now
+      user_score = TotalScore.find_by(user: user).score
+      
+      UserMailer.welcome_email(user, user_score, all_scores).deliver_now
     end
   end
 

@@ -6,8 +6,15 @@
   <body>
     <h1>Football Picker - Week <%= @week %> Score</h1>
     <h2>Hello, <%= @user.email %>!</h2>
-    <p>Your score for week <%= @week %> was: <%= @weekly_score %></p>
-    <p><a href="http://football-picker.herokuapp.com">Click here</a> to log in and see your full results from last week and to make your picks for this week!</p>
-    <h3>Thanks for playing Football Picker!</h3>
+    <p>Your score so far: <strong><%= @user_score %></strong></p>
+    <hr />
+    <h3>Overall Standings</h3>
+    <ol>
+      <% @all_scores.each do |score| %>
+        <li><%= score.user.email %> - <strong><%= score.score %></strong></li>
+      <% end %>
+    </ol> 
+
+    <h4>Thanks for playing!  Review your picks and see current standings here: <a href="http://college-bowl-picker.herokuapp.com"></a></h4>
   </body>
 </html> 

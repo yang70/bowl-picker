@@ -21,4 +21,11 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: @user.email, subject: "Yang Family Bowl Challenge - You're All Set!")
   end
+
+  def weekly_email(user, user_score, all_scores)
+    @user = user
+    @user_score = user_score
+    @all_scores = all_scores
+    mail(to: @user.email, subject: "Yang Family Bowl Challenge - Current Standings")
+  end
 end
