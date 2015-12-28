@@ -17,7 +17,7 @@
         <table class="results-table">
           <tr>
             <td><strong><h4>Your pick: </h4></strong></td>
-            <% if current_user.picks.find_by(game_id: game_id).winner && (current_user.picks.find_by(game_id: game_id).winner == "Washington State" %>
+            <% if current_user.picks.find_by(game_id: game_id).winner && (current_user.picks.find_by(game_id: game_id).winner == "Washington State") %>
               <td><h4>WSU</h4></td>
             <% else %>
               <td><h4><%= current_user.picks.find_by(game_id: game.id).winner %></h4></td>
