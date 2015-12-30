@@ -116,6 +116,10 @@ class Game < ActiveRecord::Base
     end
 
     info_array.delete_at(-1)
+    
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    puts info_array
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 
     start = 0
     finish = start + 4
