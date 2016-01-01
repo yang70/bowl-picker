@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151219234152) do
+ActiveRecord::Schema.define(version: 20160101233432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20151219234152) do
   end
 
   add_index "picks", ["user_id"], name: "index_picks_on_user_id", using: :btree
+
+  create_table "tie_breakers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "clemson_score"
+    t.integer  "alabama_score"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "total_scores", force: :cascade do |t|
     t.integer  "user_id"

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :picks
   has_many :weekly_scores
   has_one :total_score
+  has_one :tie_breaker
 
   after_create :setup_blank_picks, :setup_scores
 

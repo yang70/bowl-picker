@@ -30,3 +30,13 @@ task :make_picks_mark_kyle => :environment do
     pick.save
   end
 end
+
+task :create_blank_tb => :environment do
+  users = User.all
+
+  users.each do |user|
+    tb = TieBreaker.create(user: user)
+    tb.save
+  end
+end
+
