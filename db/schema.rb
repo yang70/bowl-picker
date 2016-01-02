@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101233432) do
+ActiveRecord::Schema.define(version: 20160102213515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 20160101233432) do
     t.integer  "user_id"
     t.integer  "clemson_score"
     t.integer  "alabama_score"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.boolean  "correct"
+    t.integer  "guess_difference"
   end
 
   create_table "total_scores", force: :cascade do |t|
