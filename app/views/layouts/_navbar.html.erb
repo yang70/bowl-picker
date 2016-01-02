@@ -14,13 +14,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.present? %>
-          <li><a>Signed in as <%= current_user.email %></a></li>
           <li><%= link_to "See Picks", bowls_path %></li>
-          <li><%= link_to "Tie Breaker", tiebreaker_path %></li>
+          <li><%= link_to "Tie Breaker", tie_breaker_index_path %></li>
           <li><%= link_to "Standings", total_scores_path %></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">Other<span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a>Signed in as <%= current_user.email %></a></li>
+              <li role="separator" class="divider"></li>
               <li><%= link_to "Update Password", edit_user_registration_path %></li>
               <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %></li>
             </ul>

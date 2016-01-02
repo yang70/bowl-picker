@@ -1,3 +1,35 @@
 // Place all the styles related to the tieBreaker controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#championship {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.tieBreaker-container {
+    background-color: #6CADDE;
+    border-radius: 10px;
+    width: 75%;
+    height: 550px;
+    display: inline-block;
+    float: none;
+}
+
+#tieBreakerButton {
+  width: 120px;
+  margin: 5px auto;
+}
+
+#tieBreakerSubmitButton {
+  width: 120px;
+  margin: 5px auto;
+}
+
+#tie_breaker_clemson_score {
+  width: 25px;
+}
+
+#tie_breaker_alabama_score {
+  width: 25px;
+}

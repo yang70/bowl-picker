@@ -1,0 +1,53 @@
+<div class="col-md-12 tieBreaker-container">
+  <h1>Tie Breaker</h1>
+  <h3>Guess the score of the championship game!</h3>
+  <img src="https://s3.amazonaws.com/mystufftoshare/championship.png" alt="championship" id="championship" />
+  <p>Monday January 11, 5:30pm PST - ESPN</p>
+  <div id="tieBreakerDisplay" class="text-center">
+  <%= link_to "Update Guess", edit_tie_breaker_path(@tie_breaker), remote: true, class: "btn btn-default center-block", id: "tieBreakerButton" %>
+    <div class="col-md-6">
+      <h3>Clemson</h3>
+      <div id="clemsonScoreShow" >
+        <% if @tie_breaker.clemson_score %>
+          <h4 id="clemsonScore"><%= @tie_breaker.clemson_score %></h4>
+        <% else %>
+          <p>No Guess</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>Alabama</h3>
+      <div id="alabamaScoreShow" >
+        <% if @tie_breaker.alabama_score %>
+          <h4 id="alabamaScore"><%= @tie_breaker.alabama_score %></h4>
+        <% else %>
+          <p>No Guess</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="tieBreakerEdit" class="text-center, hidden">
+    <%= form_for @tie_breaker, remote: true do |f| %>
+      <% if @tie_breaker.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@tie_breaker.errors.count, "error") %> prohibited this guess from being saved:</h2>
+          <ul class="field_with_errors">
+            <%= @tie_breaker.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.submit "Submit", class: "btn btn-primary center-block", id: "tieBreakerSubmitButton" %>
+      <div class="col-md-6">
+        <h3>Clemson</h3>
+        <%= f.text_field :clemson_score %>
+      </div>
+      <div class="col-md-6">
+        <h3>Alabama</h3>
+        <%= f.text_field :alabama_score %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

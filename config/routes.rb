@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :picks
   devise_for :users
   resources :weeks
+  resources :tie_breaker, path: '/tiebreaker'
 
   root 'welcome#index'
   get 'bowls' => 'bowls#index'
-  get 'tiebreaker' => 'tie_breaker#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
