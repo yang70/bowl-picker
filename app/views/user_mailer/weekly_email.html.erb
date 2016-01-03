@@ -6,9 +6,9 @@
   <body>
     <h1>Football Picker - Week <%= @week %> Score</h1>
     <h2>Hello, <%= @user.email %>!</h2>
-    <p>Your score so far: <strong><%= @user_score %></strong></p>
+    <p>Your final score:: <strong><%= @user_score %></strong></p>
     <hr />
-    <h3>Overall Standings</h3>
+    <h3>Final Standings</h3>
     <ol>
       <% @all_scores.each do |score| %>
         <li><%= score.user.email %> - <strong><%= score.score %></strong></li>

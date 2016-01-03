@@ -26,6 +26,6 @@ class UserMailer < ApplicationMailer
     @user = user
     @user_score = user_score
     @all_scores = all_scores
-    mail(to: @user.email, subject: "Yang Family Bowl Challenge - Current Standings")
+    mail(to: @user.email, subject: "Yang Family Bowl Challenge - Final Standings")
   end
 end
